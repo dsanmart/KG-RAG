@@ -7,9 +7,9 @@
   <meta name="description" content="Augmenting Language Model Agents with explicit Knowledge Graphs to reduce hallucinations and have a dynamic and scalable knowledge.">
   <meta property="og:title" content="KG-RAG: Bridging the Gap between Knowledge and Creativity"/>
   <meta property="og:description" content="Large Language Model Agents, Knowledge Graphs, Retrieval Augmented Generation"/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <meta property="og:url" content="https://dsanmart.github.io/KG-RAG/"/>
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/agent_workflow.png" />
+  <meta property="og:image" content="static/images/agent_workflow.png" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
@@ -61,7 +61,7 @@
                   </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block">IE University, Madrid, Spain</span>
+                    <span class="author-block">IE University, Spain</span>
                   </div>
 
 
@@ -100,6 +100,17 @@
 <!--                    </a>-->
 <!--                  </span>-->
 
+                  <!-- Medium article link-->
+                  <span class="link-block">
+                    <a href="https://medium.com/@dsanmart/kg-rag" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-newspaper"></i>
+                    </span>
+                    <span>Blog Post</span>
+                    </a>
+                  </span>
+
                   <!-- Github link -->
                   <span class="link-block">
                     <a href="https://github.com/dsanmart/KG-RAG" target="_blank"
@@ -108,8 +119,8 @@
                       <i class="fab fa-github"></i>
                     </span>
                     <span>Code</span>
-                  </a>
-                </span>
+                    </a>
+                  </span>
 
 
             </div>
@@ -223,14 +234,6 @@
           <p>
             The retrieval stage constitutes a critical component of the KGQA process, where the goal is to systematically extract pertinent information from a KG in response to a user-specified query. To this end, we perform a Chain of Explorations (CoE) over the KG, a novel approach designed to facilitate the exploration of a KG through a sequential traversal of its nodes and relationships to find relevant information.
           </p>
-          <br>
-          <div class="hero-body">
-            <img src="static/images/coe_diagram.png" alt="MY ALT TEXT"/>
-            <h2 class="subtitle has-text-justified">
-              Diagram illustrating the components to perform KGQA over a KG using Chain of Explorations (CoE).
-            </h2>
-          </div>
-          
           <p>
             CoE, illustrated in the diagram, strategically traverses the KG by navigating through nodes and edges that are directly relevant to the query. It performs a step-by-step exploration to ensure a thorough and directed search, increasing the likelihood of retrieving accurate and relevant information.
           </p>
@@ -238,7 +241,7 @@
             The algorithm consists of three main components: planning, KG lookups, and evaluation. The planning phase involves devising a sequence of steps that guide the exploration through the KG. KG lookups are executed using a combination of vector similarity search and cipher queries to identify relevant nodes or relationships. The evaluation phase checks the current state of the traversal against the initial query, deciding whether to continue exploring, refine the exploration strategy, or synthesize an answer based on the gathered context.
           </p>
           <p>
-            The initial step of CoE uses a few-shot learning prompt along with the user query \(q\) to guide the planner in formulating a strategic exploration plan throughout the KG. In the first step of the plan, CoE finds top-k starting nodes using vector similarity search over a specified keyword and selects relevant nodes to perform further exploration. The process then progresses into a cyclical lookup phase within the KG, outlined as follows:
+            The initial step of CoE uses a few-shot learning prompt along with the user query q to guide the planner in formulating a strategic exploration plan throughout the KG. In the first step of the plan, CoE finds top-k starting nodes using vector similarity search over a specified keyword and selects relevant nodes to perform further exploration. The process then progresses into a cyclical lookup phase within the KG, outlined as follows:
             <ol>
               <li>Execution of Cypher queries to retrieve connected nodes and relationships in the KG.</li>
               <li>Ranking of nodes or relationships by relevance using dense vector embeddings to measure relevance for the current step's task.</li>
@@ -248,9 +251,14 @@
           <p>
             This is followed by an evaluation phase, where the LLM assesses the alignment of the current traversal with the initial plan. Based on this assessment, the algorithm decides whether to continue the exploration, adjust the exploratory steps, or synthesize a response based on the context found thus far. Suppose the evaluation phase identifies a conclusive answer within the traversed path. In that case, it compiles the data into a coherent chain of node triples and sends it to the next stage for generating an answer.
           </p>
-          
+        
         </div>
-
+        <div class="hero-body">
+          <img src="static/images/coe_diagram.png" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-justified">
+            Diagram illustrating the components to perform KGQA over a KG using Chain of Explorations (CoE).
+          </h2>
+        </div>
 
       </div>
     </div>
